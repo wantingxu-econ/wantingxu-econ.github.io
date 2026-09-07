@@ -1,304 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WanTing Xu</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --ink:#141a2b;
-    --paper:#e9e6da;
-    --paper-hi:#f2f0e6;
-    --brass:#a9813f;
-    --brass-soft:#c9a25f;
-    --steel:#2f5d8a;
-    --text:#1b1b18;
-    --text-muted:#5c5a4e;
-    --rule:#c9c4b2;
-    --max:760px;
-  }
-  *{box-sizing:border-box;}
-  @media (prefers-reduced-motion: reduce){
-    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important;}
-  }
-  body{
-    margin:0;
-    background:var(--paper);
-    color:var(--text);
-    font-family:'IBM Plex Sans', sans-serif;
-    line-height:1.65;
-    -webkit-font-smoothing:antialiased;
-  }
-  a{color:var(--steel);}
-  a:focus-visible{ outline:2px solid var(--steel); outline-offset:3px; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  .hero{
-    background:var(--ink);
-    color:var(--paper-hi);
-    padding:88px 24px 56px;
-  }
-  .hero-inner{ max-width:var(--max); margin:0 auto; }
-  .eyebrow{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.78rem;
-    letter-spacing:0.12em;
-    text-transform:uppercase;
-    color:var(--brass-soft);
-    margin:0 0 18px;
-  }
-  h1{
-    font-family:'Newsreader', serif;
-    font-weight:500;
-    font-size:clamp(2.4rem, 7vw, 3.8rem);
-    margin:0 0 12px;
-    letter-spacing:-0.01em;
-  }
-  .tagline{
-    font-family:'Newsreader', serif;
-    font-style:italic;
-    font-weight:400;
-    font-size:clamp(1.05rem, 2.4vw, 1.3rem);
-    color:#c7cbe0;
-    max-width:520px;
-    margin:0 0 36px;
-  }
-  .hero-contact{
-    display:flex;
-    flex-wrap:wrap;
-    gap:20px;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.85rem;
-  }
-  .hero-contact a{
-    text-decoration:none;
-    border-bottom:1px solid rgba(201,162,95,0.5);
-    padding-bottom:2px;
-    color:var(--brass-soft);
-    transition:border-color .2s, color .2s;
-  }
-  .hero-contact a:hover{ color:#e6cd9a; border-color:#e6cd9a; }
+  <title>WanTing Xu</title>
 
-  .hero-top{
-    display:flex;
-    align-items:flex-start;
-    gap:32px;
-    flex-wrap:wrap;
-  }
-  .avatar{
-    width:120px;
-    height:120px;
-    border-radius:50%;
-    object-fit:cover;
-    border:2px solid var(--brass-soft);
-    flex-shrink:0;
-  }
-  .hero-text{ min-width:240px; flex:1; }
+  <style>
+    body {
+      margin: 0;
+      background: #ffffff;
+      color: #222222;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+    }
 
-  .chart-wrap{
-    border-top:1px solid rgba(201,196,178,0.2);
-    margin-top:44px;
-    padding-top:26px;
-  }
-  .chart-label{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.68rem;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    color:#8890ac;
-    margin-bottom:10px;
-  }
-  svg.chart{ width:100%; height:auto; display:block; }
-  .chart-line{
-    fill:none;
-    stroke:var(--brass-soft);
-    stroke-width:2;
-    stroke-linecap:round;
-    stroke-linejoin:round;
-    stroke-dasharray:900;
-    stroke-dashoffset:900;
-    animation:draw 2.2s ease forwards 0.3s;
-  }
-  @keyframes draw{ to{ stroke-dashoffset:0; } }
-  .chart-tick text{ font-family:'IBM Plex Mono', monospace; font-size:9px; fill:#7d84a0; }
-  .chart-tick line{ stroke:rgba(201,196,178,0.25); stroke-width:1; }
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 70px 30px;
+    }
 
-  section{
-    max-width:var(--max);
-    margin:0 auto;
-    padding:56px 24px;
-  }
-  section + section{ border-top:1px solid var(--rule); }
-  .sec-head{ display:flex; align-items:baseline; gap:16px; margin-bottom:28px; }
-  .sec-num{ font-family:'IBM Plex Mono', monospace; color:var(--brass); font-size:0.85rem; }
-  h2{
-    font-family:'Newsreader', serif;
-    font-weight:500;
-    font-size:1.6rem;
-    margin:0;
-    letter-spacing:-0.01em;
-  }
-  .lede{
-    font-family:'Newsreader', serif;
-    font-size:1.12rem;
-    line-height:1.8;
-    color:#2a3350;
-    max-width:640px;
-  }
+    /* Header */
 
-  .interests{
-    display:grid;
-    gap:0;
-  }
-  .interest{
-    display:grid;
-    grid-template-columns:28px 1fr;
-    gap:14px;
-    padding:16px 0;
-    border-top:1px dashed var(--rule);
-  }
-  .interest:first-child{ border-top:none; }
-  .interest-mark{ color:var(--brass); font-family:'IBM Plex Mono', monospace; }
-  .interest-body p{ margin:0; font-size:0.98rem; }
-  .interest-title{ font-weight:600; margin-bottom:2px !important; }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 35px;
+      margin-bottom: 60px;
+    }
 
-  .edu-card{
-    display:flex;
-    justify-content:space-between;
-    align-items:baseline;
-    gap:16px;
-    padding:20px 0;
-    border-top:1px dashed var(--rule);
-  }
-  .edu-card:first-child{ border-top:none; }
-  .edu-school{ font-family:'Newsreader', serif; font-weight:600; font-size:1.1rem; }
-  .edu-degree{ color:var(--text-muted); font-size:0.9rem; margin-top:2px; }
-  .edu-year{ font-family:'IBM Plex Mono', monospace; font-size:0.8rem; color:var(--brass); white-space:nowrap; }
+    .profile-photo {
+      width: 145px;
+      height: 145px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
 
-  footer{
-    background:var(--ink);
-    color:var(--paper-hi);
-    padding:56px 24px 36px;
-  }
-  .footer-inner{ max-width:var(--max); margin:0 auto; }
-  footer h2{ color:var(--paper-hi); }
-  .footer-note{
-    font-family:'Newsreader', serif;
-    font-style:italic;
-    color:#c7cbe0;
-    font-size:1.05rem;
-    max-width:480px;
-    margin:14px 0 30px;
-  }
-  .contact-row{ display:flex; flex-wrap:wrap; gap:14px; }
-  .contact-btn{
-    text-decoration:none;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.82rem;
-    padding:12px 18px;
-    border:1px solid rgba(201,162,95,0.5);
-    color:var(--brass-soft);
-    transition:background .2s, color .2s;
-  }
-  .contact-btn:hover{ background:var(--brass-soft); color:var(--ink); }
-  .copyline{
-    margin-top:40px;
-    padding-top:18px;
-    border-top:1px solid rgba(201,196,178,0.15);
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.72rem;
-    color:#7d84a0;
-  }
-</style>
+    .header-text h1 {
+      font-size: 36px;
+      font-weight: 500;
+      margin: 0 0 8px 0;
+    }
+
+    .subtitle {
+      color: #555555;
+      font-size: 17px;
+      margin: 0;
+    }
+
+    .location {
+      color: #888888;
+      font-size: 15px;
+      margin: 3px 0 12px 0;
+    }
+
+    .contact a {
+      color: #315f8c;
+      text-decoration: none;
+      margin-right: 15px;
+    }
+
+    .contact a:hover {
+      text-decoration: underline;
+    }
+
+    /* Sections */
+
+    section {
+      margin-bottom: 48px;
+    }
+
+    h2 {
+      font-size: 22px;
+      font-weight: 500;
+      margin-bottom: 15px;
+      padding-bottom: 7px;
+      border-bottom: 1px solid #dddddd;
+    }
+
+    p {
+      font-size: 16px;
+      margin-top: 0;
+    }
+
+    /* Research Interests */
+
+    .interests {
+      line-height: 2;
+    }
+
+    /* Research */
+
+    .research-note {
+      color: #555555;
+    }
+
+    /* Footer */
+
+    footer {
+      margin-top: 70px;
+      padding-top: 20px;
+      border-top: 1px solid #eeeeee;
+      color: #999999;
+      font-size: 13px;
+    }
+
+    /* Mobile */
+
+    @media (max-width: 600px) {
+
+      .container {
+        padding: 45px 22px;
+      }
+
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 22px;
+      }
+
+      .profile-photo {
+        width: 125px;
+        height: 125px;
+      }
+
+      .header-text h1 {
+        font-size: 31px;
+      }
+    }
+
+  </style>
 </head>
+
+
 <body>
 
-<header class="hero">
-  <div class="hero-inner">
-    <div class="hero-top">
-      <img class="avatar" src="wanting-photo.jpg" alt="Portrait of Wanting Xu">
-      <div class="hero-text">
-        <p class="eyebrow">Economics Researcher · Washington, D.C.</p>
+  <div class="container">
+
+
+    <!-- Profile -->
+
+    <header class="header">
+
+      <img
+        src="wanting-photo.jpg"
+        alt="WanTing Xu"
+        class="profile-photo"
+      >
+
+      <div class="header-text">
+
         <h1>WanTing Xu</h1>
-        
-        <div class="hero-contact">
-          <a href="mailto:wxu3303@gmail.com">wxu3303@gmail.com</a>
-          <a href="https://www.linkedin.com/">LinkedIn</a>
+
+        <p class="subtitle">
+          M.S. in Economics, Georgetown University
+        </p>
+
+        <p class="location">
+          Washington, D.C.
+        </p>
+
+        <div class="contact">
+          <a href="mailto:wxu3303@gmail.com">Email</a>
+          <a href="https://www.linkedin.com/in/wantingxu/">LinkedIn</a>
         </div>
+
       </div>
-    </div>
 
-    <div class="chart-wrap">
-      <p class="chart-label">Global Monetary Policy Factor — illustrative</p>
-      <svg class="chart" viewBox="0 0 760 140" preserveAspectRatio="none" role="img" aria-label="Illustrative line chart of a global monetary policy factor rising around three crisis periods">
-        <g class="chart-tick">
-          <line x1="120" y1="6" x2="120" y2="115"></line>
-          <text x="120" y="130" text-anchor="middle">9/11</text>
-          <line x1="380" y1="6" x2="380" y2="115"></line>
-          <text x="380" y="130" text-anchor="middle">GFC</text>
-          <line x1="610" y1="6" x2="610" y2="115"></line>
-          <text x="610" y="130" text-anchor="middle">COVID-19</text>
-        </g>
-        <path class="chart-line" d="M0,88 C35,86 62,48 120,44 C165,40 200,92 245,96 C300,100 335,72 380,32 C415,10 460,80 495,90 C540,100 575,94 610,36 C645,16 690,64 760,56" />
-      </svg>
-    </div>
-  </div>
-</header>
-
-<section id="interests">
-  <div class="sec-head">
-    <span class="sec-num">01</span>
-    <h2>Research Interests</h2>
-  </div>
-  <p class="lede">
-    I work at the intersection of monetary economics, global markets, and large language models — using LLMs and structured cross-country data to measure things economists have historically found hard to quantify.
-  </p>
+    </header>
 
 
-    <div class="interest">
-      <span class="interest-mark">→</span>
-      <div class="interest-body">
-        <p class="interest-title">LLMs for empirical economics</p>
-        <p>Applying language models to unstructured text — speeches, news, policy documents — to build indices that traditional methods can't easily construct.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- About -->
 
-<section id="education">
-  <div class="sec-head">
-    <span class="sec-num">02</span>
-    <h2>Education</h2>
-  </div>
-  <div>
-    <div class="edu-card">
-      <div>
-        <div class="edu-school">Georgetown University</div>
-        <div class="edu-degree">M.S. in Economics</div>
-      </div>
-      <div class="edu-year">May 2025</div>
-    </div>
-    <div class="edu-card">
-      <div>
-        <div class="edu-school">Chengdu University of Technology</div>
-        <div class="edu-degree">B.A. in English, Minor in Economics</div>
-      </div>
-      <div class="edu-year">Jun 2023</div>
-    </div>
-  </div>
-</section>
+    <section>
 
-<footer id="contact">
-  <div class="footer-inner">
-    <h2>Get in touch</h2>
-    <div class="contact-row">
-      <a class="contact-btn" href="mailto:wxu3303@gmail.com">wxu3303@gmail.com</a>
-    </div>
-    <p class="copyline">© 2026 WanTing Xu · Washington, D.C.</p>
+      <h2>About</h2>
+
+      <p>
+        I received my M.S. in Economics from Georgetown University
+        in 2025. My interests lie broadly in macroeconomics, with a particular interest in empirical
+        research and the application of new quantitative and
+        computational methods to economic questions.
+      </p>
+
+    </section>
+
+
+    <!-- Research Interests -->
+
+    <section>
+
+      <h2>Research Interests</h2>
+
+      <p class="interests">
+        Macroeconomics, Monetary Economics, Applied Econometrics, and Large Language Models in Economics
+      </p>
+
+    </section>
+
+
+    <!-- Research -->
+
+    <section>
+
+      <h2>Research</h2>
+
+      <p class="research-note">
+       in progress.
+      </p>
+
+    </section>
+
+
+    <!-- Footer -->
+
+    <footer>
+      © 2026 WanTing Xu · Washington, D.C.
+    </footer>
+
+
   </div>
-</footer>
 
 </body>
+
 </html>
