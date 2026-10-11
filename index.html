@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,9 +27,22 @@
 
     .header {
       display: flex;
-      align-items: center;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
       gap: 35px;
-      margin-bottom: 60px;
+      margin-bottom: 50px;
+    }
+
+    .header-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .header-text h1 {
+      font-size: 36px;
+      font-weight: 500;
+      margin: 0;
     }
 
     .profile-photo {
@@ -36,34 +50,7 @@
       height: 145px;
       border-radius: 50%;
       object-fit: cover;
-    }
-
-    .header-text h1 {
-      font-size: 36px;
-      font-weight: 500;
-      margin: 0 0 8px 0;
-    }
-
-    .subtitle {
-      color: #555555;
-      font-size: 17px;
-      margin: 0;
-    }
-
-    .location {
-      color: #888888;
-      font-size: 15px;
-      margin: 3px 0 12px 0;
-    }
-
-    .contact a {
-      color: #315f8c;
-      text-decoration: none;
-      margin-right: 15px;
-    }
-
-    .contact a:hover {
-      text-decoration: underline;
+      flex-shrink: 0;
     }
 
     /* Sections */
@@ -75,7 +62,7 @@
     h2 {
       font-size: 22px;
       font-weight: 500;
-      margin-bottom: 15px;
+      margin: 0 0 15px 0;
       padding-bottom: 7px;
       border-bottom: 1px solid #dddddd;
     }
@@ -85,16 +72,30 @@
       margin-top: 0;
     }
 
-    /* Research Interests */
-
-    .interests {
-      line-height: 2;
-    }
-
-    /* Research */
+    /* Publications */
 
     .research-note {
-      color: #555555;
+      color: #222222;
+    }
+
+    .research-note a {
+      color: #222222;
+      text-decoration: underline;
+    }
+
+    /* Contact */
+
+    .contact p {
+      margin: 6px 0;
+    }
+
+    .contact a {
+      color: #222222;
+      text-decoration: underline;
+    }
+
+    a:hover {
+      opacity: 0.7;
     }
 
     /* Footer */
@@ -116,33 +117,44 @@
       }
 
       .header {
-        flex-direction: column;
+        flex-direction: row;
         align-items: flex-start;
-        gap: 22px;
-      }
-
-      .profile-photo {
-        width: 125px;
-        height: 125px;
+        gap: 15px;
+        margin-bottom: 40px;
       }
 
       .header-text h1 {
-        font-size: 31px;
+        font-size: 28px;
+      }
+
+      .profile-photo {
+        width: 95px;
+        height: 95px;
+      }
+
+      h2 {
+        font-size: 21px;
+      }
+
+      p {
+        font-size: 15px;
       }
     }
 
   </style>
 </head>
 
-
 <body>
 
   <div class="container">
 
-
     <!-- Profile -->
 
     <header class="header">
+
+      <div class="header-text">
+        <h1>WanTing Xu</h1>
+      </div>
 
       <img
         src="wanting-photo.jpg"
@@ -150,65 +162,89 @@
         class="profile-photo"
       >
 
-      <div class="header-text">
+    </header>
 
-        <h1>WanTing Xu</h1>
+    <!-- About -->
 
     <section>
 
       <h2>About</h2>
 
       <p>
-        About
-
-I received my M.S. in Economics from Georgetown University in 2025. My research interests include international macroeconomics, monetary policy, global financial markets, and quantitative macroeconomic analysis.
+        I received my M.S. in Economics from
+        Georgetown University in 2025.
+        My research interests include international
+        macroeconomics, monetary policy,
+        global financial markets, and quantitative
+        macroeconomic analysis.
       </p>
 
     </section>
 
+    <!-- Publications -->
 
-    
+    <section>
 
+      <h2>Publications</h2>
 
-    <!-- Research -->
+      <p class="research-note">
 
-<section>
-  <h2>Publications</h2>
+        <strong>
+          Assessing Monetary Policy Globally:
+          Evidence from LLMs and Semi-structural Models
+        </strong>,
+        with
+        <a href="https://www.diegovilan.net/"
+           target="_blank"
+           rel="noopener noreferrer">Diego Vilán</a>.
 
-  <p class="research-note" style="color: black;">
-    <strong>Assessing Monetary Policy Globally: Evidence from LLMs and Semi-structural Models</strong>,
-    with <a href="https://www.diegovilan.net/" target="_blank" rel="noopener noreferrer" style="color: black;">Diego Vilán</a>.
-    <em>FEDS Notes</em>, Board of Governors of the Federal Reserve System, October 2026.
-    (<a href="https://www.federalreserve.gov/econres/notes/feds-notes/assessing-monetary-policy-globally-evidence-from-llms-and-semi-structural-models-20261009.html" target="_blank" rel="noopener noreferrer" style="color: black;">Link</a>)
-  </p>
-</section>
+        <em>FEDS Notes</em>,
+        Board of Governors of the Federal Reserve System,
+        October 2026.
 
- <h2>Contact information</h2>
+        (<a href="https://www.federalreserve.gov/econres/notes/feds-notes/assessing-monetary-policy-globally-evidence-from-llms-and-semi-structural-models-20261009.html"
+           target="_blank"
+           rel="noopener noreferrer">Link</a>)
 
-  <div class="contact">
-    Email:
-    <a href="mailto:wx@georgetown.edu">
-      wx95@georgetown.edu
-    </a>
-    <p>
-      LinkedIn:
-      <a href="https://www.linkedin.com/in/wantingxu/"
-         target="_blank"
-         rel="noopener noreferrer">
-        WanTing Xu
-      </a>
-    </p>
-  </div>
+      </p>
+
+    </section>
+
+    <!-- Contact -->
+
+    <section>
+
+      <h2>Contact information</h2>
+
+      <div class="contact">
+
+        <p>
+          Email:
+          <a href="mailto:wx95@georgetown.edu">
+            wx95@georgetown.edu
+          </a>
+        </p>
+
+        <p>
+          LinkedIn:
+          <a href="https://www.linkedin.com/in/wantingxu/"
+             target="_blank"
+             rel="noopener noreferrer">
+            WanTing Xu
+          </a>
+        </p>
+
+      </div>
+
+    </section>
 
     <!-- Footer -->
 
     <footer>
-      © 2023 WanTing Xu · Washington, D.C.
+      © 2026 WanTing Xu · Washington, D.C.
     </footer>
-
 
   </div>
 
 </body>
-
 </html>
